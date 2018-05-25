@@ -1,0 +1,2 @@
+# dashmaster
+Simple template dashboard
