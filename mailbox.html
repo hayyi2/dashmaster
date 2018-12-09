@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mailbox &middot; Dasmaster Template</title>
+	<base href="">
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css?v1" rel="stylesheet">
+
+	<!-- vendor -->
+	<!-- fontawesome -->
+	<link href="css/style.min.css?v1" rel="stylesheet">
+	<!-- dataTables -->
+	<link href="vendor/dataTables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+	<!-- custom style -->
+	<link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
+
+	<!-- jQuery -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bs-custom-file-input.min.js"></script>
+	<!-- vendor -->
+	<!-- dataTables -->
+	<script src="vendor/dataTables/jquery.dataTables.min.js"></script>
+	<script src="vendor/dataTables/dataTables.bootstrap4.min.js"></script>
+	<!-- text editor tinymce -->
+	<script type="text/javascript" src="vendor/tinymce/tinymce.min.js"></script>
+	<!-- chartjs -->
+	<script src="vendor/chartjs/chart.min.js"></script>
+	<script src="vendor/chartjs/chart-data.js"></script>
+
+	<!-- custom script -->
+	<script src="js/script.js"></script>
+</head>
+<body class="sidenav">
+	<header>
+		<nav class="navbar navbar-dark fixed-top">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav">
+				<i class="fas fa-bars"></i>
+			</button>
+			<a class="navbar-brand" href="index.html">Dashmaster <small class="show-sm">v1.0</small></a>
+
+			<div class="collapsed navbar-collapse" id="mainnav">
+				<ul class="navbar-nav mainnav">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html"><i class="fa-sm fas fa-tachometer-alt"></i>Dashboard</a>
+					</li>
+					<li class="divider"></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa-sm fas fa-th-large"></i>Options
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="topnav.html">Top Navbar</a>
+							<a class="dropdown-item" href="skin-content.html">Skin & Content</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="widgets.html"><i class="fa-sm far fa-clone"></i>Widgets</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="charts.html"><i class="fa-sm far fa-chart-bar"></i>Charts</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="tables.html"><i class="fa-sm fas fa-table"></i>Tables</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="forms.html"><i class="fa-sm fas fa-edit"></i>Forms</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="elements.html"><i class="fa-sm fas fa-laptop"></i>Elements</a>
+					</li>
+					<li class="divider"></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa-sm far fa-folder"></i>More Page
+							<span class="badge badge-primary">3</span>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="login.html">Login</a>
+							<a class="dropdown-item" href="blank.html">Blank Page</a>
+							<a class="dropdown-item" href="error.html">Errors Page</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown show">
+						<a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa-sm far fa-folder"></i>Examples
+							<span class="badge badge-info">5</span>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item active" href="mailbox.html"><i class="fa-sm far fa-envelope"></i>Mailbox<span class="badge badge-danger">3</span></a>
+							<a class="dropdown-item" href="register.html"><i class="fa-sm fas fa-user-plus"></i>Register</a>
+							<a class="dropdown-item" href="profile.html"><i class="fa-sm fas fa-user"></i>Profile</a>
+							<a class="dropdown-item" href="lock.html"><i class="fa-sm fas fa-lock"></i>Lock Screan</a>
+							<a class="dropdown-item" href="invoice.html"><i class="fa-sm fas fa-receipt"></i>Invoice</a>
+						</div>
+					</li>
+					<li class="divider"></li>
+					<li class="nav-item">
+						<a class="nav-link" href="docs.html"><i class="fa-sm fas fa-book"></i>Documentations</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="far fa-bell"></i><span class="badge badge-success">2</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right dropdown-notivication">
+							<!-- <a href="#" class="dropdown-item disabled">No Notivication</a> -->
+							<a href="#" class="dropdown-item">
+								<i class="fas fa-sm fa-envelope"></i>2 Pesan baru <br>
+								<i class="fas fa-sm"></i><small class="text-secondary">5 Mins ago</small>
+							</a>
+							<a href="#" class="dropdown-item">
+								<i class="fas fa-sm fa-user-friends"></i>5 Member Baru
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item"><i class="far fa-sm fa-eye"></i>View All</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="show-sm">Keroro Gunsou</span>
+							<div class="avatar ml-0 ml-sm-2"><img src="img/user5.PNG" alt="A"></div>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="profile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
+							<a class="dropdown-item" href="change-profile.html"><i class="fa fa-fw fa-user-cog"></i> Change Profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="login.html"><i class="fa fa-fw fa-sign-out-alt"></i> Logout</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="body">
+		<div class="auto-height">
+			<nav aria-label="breadcrumb">
+				<div class="max-xl-container">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.html"><i class="fa-fw fas fa-tachometer-alt"></i> Dashboard</a></li>
+						<li class="breadcrumb-item active">Mailbox</li>
+					</ol>
+				</div>
+			</nav>
+			<div class="content max-xl-container">
+				<div class="content-header">
+					<h2 class="content-title">Mailbox</h2>
+				</div>
+				<div class="content-body">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">Title Card</h4>
+						</div>
+						<div class="card-body">
+							<p>Card body</p>
+						</div>
+					</div>
+				</div>
+				<!-- /.content-body -->
+			</div>
+		</div>
+		<div class="footer">
+			<div class="max-xl-container">
+				&copy; 2018 <a href="https://github.com/hayyi2/dashmaster" target="_blank">Dashmaster</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
