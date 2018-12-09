@@ -1,35 +1,54 @@
-## DashMaster
+# Dashmaster
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Simple responsive dashboard template.
 
-### Markdown
+## Capture
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+![Capture](capture/capture.png)
 
-```markdown
-Syntax highlighted code block
+![Capture2](capture/capture2.png)
 
-# Header 1
-## Header 2
-### Header 3
+## Getting Started
 
-- Bulleted
-- List
+Copies of the project and runs on your local machine for development purposes. See application for notes on how to apply to your project.
 
-1. Numbered
-2. List
+### Structure Source Code
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+Dashmaster/
+├── css/
+│   ├── bootstrap.min.css
+│   └── style.min.css
+├── js/
+│   ├── jquery-3.2.1.min.js
+│   ├── popper.min.js
+│   ├── bootstrap.min.js
+│   ├── bs-custom-file-input.min.js
+│   └── script.js
+├── scss/
+│   ├── bootstrap/
+│   ├── _variables.scss
+│   ├── bootstrap.scss
+│   └── style.scss
+├── vendor/
+│   ├── bootstrap-select/
+│   ├── chartjs/
+│   ├── dataTables/
+│   ├── fontawesome/
+│   └── tinymce/
+└── index.html
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Built With
 
-### Jekyll Themes
+* [Bootstrap v4.1.3](https://getbootstrap.com/)
+* [jQuery v3.2.1](https://jquery.org/)
+* [Font Awesome Free 5.5.0](https://fontawesome.com/)
+* [DataTables Bootstrap 3](https://datatables.net/)
+* [Chart.js](http://chartjs.org/)
+* [Bootstrap-select v1.13.3](https://developer.snapappointments.com/bootstrap-select)
+* [TinyMCE v4.7.13](https://www.tiny.cloud/)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hayyi2/dashmaster/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## License
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This project is licensed under the MIT License
