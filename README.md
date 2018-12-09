@@ -2,6 +2,9 @@
 
 Simple responsive dashboard template.
 
+[Demo](https://hayyi2.github.io/dashmaster/) &middot; 
+[Download](https://github.com/hayyi2/dashmaster/archive/master.zip)
+
 ## Capture
 
 ![Capture](capture/capture.png)
