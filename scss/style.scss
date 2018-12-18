@@ -21,20 +21,7 @@ $skin: (
 	"dark": 	$gray-900,
 	) !default;
 /* defalt skin*/
-$skin: map-merge((
-	"blue": 	$blue, 
-	"indigo": 	$indigo, 
-	"purple": 	$purple, 
-	"pink": 	$pink, 
-	"red": 		$red, 
-	"orange": 	$orange, 
-	"yellow": 	$yellow, 
-	"green": 	$green, 
-	"teal": 	$teal, 
-	"cyan": 	$cyan, 
-	),
-$skin
-);
+$skin: map-merge($colors, $skin);
 $skin-lighter: (
 	"dark": 	lighten($gray-900, 75%),
 	) !default;
@@ -327,6 +314,11 @@ body{
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
+		}
+		div.badge{
+			vertical-align: top;
+			margin-top: .2rem;
+			min-width: 1.75rem;
 		}
 		.bootstrap-select{
 			.btn.dropdown-toggle.btn-light{
