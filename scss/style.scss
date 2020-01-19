@@ -16,7 +16,6 @@ $border-width-sidenav: 3px;
 /* footer */
 $footer-height: 2.25rem;
 
-
 $skin: (
 	"dark": 	$gray-900,
 	) !default;
@@ -69,6 +68,7 @@ $min-media: map-get($container-max-widths, 'sm');
 .hide{
 	display: none;
 }
+
 @mixin sidenav() {
 	font-size: $font-size-base;
 	position: fixed;
@@ -161,10 +161,188 @@ $min-media: map-get($container-max-widths, 'sm');
 		border-top: 1px solid #e9ecef;
 	}
 }
+
 body{
 	background: $gray-100;
 	padding-top: $navbar-height;
 	transition: all 0.2s;
+
+	&.minimalist{
+		> header{
+			.navbar{
+				@each $breakpoint in map-keys($grid-breakpoints) {
+					$next: breakpoint-next($breakpoint, $grid-breakpoints);
+					$infix: breakpoint-infix($next, $grid-breakpoints);
+
+					&.navbar-expand#{$infix} {
+						&.navbar-light{
+							@include media-breakpoint-up($next) {
+								.navbar-nav {
+									.active > .nav-link,
+									.nav-link.active {
+										&::before{
+											content: " ";
+											position: absolute;
+											border-top: 1px solid $navbar-light-active-color;
+											width: 100%;
+											margin-left: -$navbar-padding-x/2;
+											margin-top: calc(#{-$navbar-padding-y - (($navbar-height - $nav-link-height))} + 2px);
+										}
+									}
+								}
+							}
+						}
+						&.navbar-dark{
+							@include media-breakpoint-up($next) {
+								.navbar-nav {
+									.active > .nav-link,
+									.nav-link.active {
+										&::before{
+											content: " ";
+											position: absolute;
+											border-top: 1px solid $navbar-dark-active-color;
+											width: 100%;
+											margin-left: -$navbar-padding-x/2;
+											margin-top: calc(#{-$navbar-padding-y - (($navbar-height - $nav-link-height))} + 2px);
+										}
+									}
+								}
+							}
+						}
+						@include media-breakpoint-down($breakpoint) {
+							.navbar-nav{
+								&.mainnav{
+									display: none;
+									font-size: $font-size-base;
+									position: absolute;
+									left: 1rem;
+  									top: calc(100% - .25rem);
+  									flex-direction: column;
+  									z-index: $zindex-dropdown;
+  									float: left;
+  									min-width: $dropdown-min-width;
+  									padding: $dropdown-padding-y 0;
+  									color: $body-color;
+  									text-align: left;
+  									list-style: none;
+  									background-color: $dropdown-bg;
+  									background-clip: padding-box;
+  									border: $dropdown-border-width solid $dropdown-border-color;
+  									@include border-radius($dropdown-border-radius);
+  									@include box-shadow($dropdown-box-shadow);
+  									.nav-item{
+  										display: block;
+  										width: 100%;
+  										clear: both;
+  										font-weight: $font-weight-normal;
+  										color: $dropdown-link-color;
+  										&.active{
+  											> .nav-link{
+  												background: map-get($skin-lighter, $default-skin);
+  											}
+  											&:not(.dropdown){
+  												border-left: $border-width-sidenav solid map-get($skin, $default-skin);
+  												padding-left: calc(#{$dropdown-item-padding-x} - #{$border-width-sidenav});
+  											}
+  										}
+  										.nav-link{
+  											color: $font-color;
+  											padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+											&.active{
+												background: map-get($skin-lighter, $default-skin);
+											}
+										}
+										&:not(.active){
+											.nav-link:hover:not(.active){
+												background-color: $dropdown-link-hover-bg !important;
+											}
+										}
+										.badge{
+											float: right;
+											margin-top: .2rem;
+											font-size: $badge-font-size;
+											padding: $badge-padding-y $badge-padding-x;
+										}
+										&.show{
+											.dropdown-menu{
+												display: block;
+											}
+										}
+										&.dropdown{
+											&.active{
+												.dropdown-menu{
+													display: block;
+												}
+											}
+										}
+										.dropdown-menu{
+											position: static;
+											width: 100%;
+											border: none;
+											border-radius: 0;
+											padding: 1px 0;
+											margin-top: 0;
+											.dropdown-item{
+												padding-left: calc(#{1rem + .5rem + $dropdown-item-padding-x} + #{$border-width-sidenav});
+												&:first-child, &:last-child{
+													border-radius: 0;
+												}
+												&:hover:not(.active), &:focus:not(.active){
+													background: $dropdown-link-hover-bg !important;
+													color: $font-color;
+												}
+												&.active{
+													border-left: $border-width-sidenav solid map-get($skin, $default-skin);
+													background: map-get($skin-lighter, $default-skin);
+													padding-left: 1rem + .5rem + $dropdown-item-padding-x;
+													color: $font-color;
+												}
+											}
+										}
+									}
+									.divider{
+										height: 0;
+										margin: .5rem 0;
+										overflow: hidden;
+										border-top: 1px solid #e9ecef;
+									}
+								}
+							}
+							.navbar-collapse.show{
+								.navbar-nav{
+									&.mainnav{
+										display: block;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&:not(.minimalist){
+		> header{
+			.navbar{
+				&.navbar-expand{
+					@each $breakpoint in map-keys($grid-breakpoints) {
+						$next: breakpoint-next($breakpoint, $grid-breakpoints);
+						$infix: breakpoint-infix($next, $grid-breakpoints);
+
+						&#{$infix} {
+							@include media-breakpoint-down($breakpoint) {
+								.navbar-nav{
+									&.mainnav{
+										@include sidenav();
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	> header{
 		.navbar{
 			font-size: $navbar-font-size;
@@ -175,9 +353,6 @@ body{
 			.collapsed{
 				display: flex;
 			}
-			.dropdown-toggle::after{
-				display: none;
-			}
 			.navbar-nav{
 				display: flex;
 				flex-flow: row nowrap;
@@ -187,24 +362,6 @@ body{
 					display: block;
 					padding-right: $navbar-nav-link-padding-x;
 					padding-left: $navbar-nav-link-padding-x;
-				}
-			}
-			&.navbar-expand{
-				@each $breakpoint in map-keys($grid-breakpoints) {
-					$next: breakpoint-next($breakpoint, $grid-breakpoints);
-					$infix: breakpoint-infix($next, $grid-breakpoints);
-
-					&#{$infix} {
-						@include media-breakpoint-down($breakpoint) {
-							.navbar-nav{
-								&.mainnav{
-									@include sidenav();
-								}
-							}
-						}
-						@include media-breakpoint-up($next) {
-						}
-					}
 				}
 			}
 			.navbar-toggler{
@@ -299,6 +456,74 @@ body{
 			}
 		}
 	}
+
+	&.active-sidenav{
+		> header{
+			.navbar{
+				&.navbar-expand{
+					@each $breakpoint in map-keys($grid-breakpoints) {
+						$next: breakpoint-next($breakpoint, $grid-breakpoints);
+						$infix: breakpoint-infix($next, $grid-breakpoints);
+
+						&#{$infix} {
+							@include media-breakpoint-down($breakpoint) {
+								.navbar-nav{
+									&.mainnav{
+										transform: translateX(0);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&:not(.minimalist).topnav{
+			@each $breakpoint in map-keys($grid-breakpoints) {
+				$next: breakpoint-next($breakpoint, $grid-breakpoints);
+				$infix: breakpoint-infix($next, $grid-breakpoints);
+
+				&#{$infix}{
+					@include media-breakpoint-down($breakpoint) {
+						@media (min-width: $min-media) {
+							.body{
+								margin-left: $sidenav-width;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.sidenav{
+		> header{
+			.navbar{
+				.navbar-toggler{
+					display: block;
+				}
+				.navbar-nav{
+					&.mainnav{
+						@include sidenav();
+					}
+				}
+			}
+		}
+		&.active-sidenav{
+			> header{
+				.navbar{
+					.mainnav{
+						transform: translateX(0);
+					}
+				}
+			}
+			.body{
+				@media (min-width: $min-media) {
+					margin-left: $sidenav-width;
+				}
+			}
+		}
+	}
+
 	.body{
 		nav[aria-label=breadcrumb]{
 			background: $gray-200;
@@ -344,79 +569,6 @@ body{
 			div{
 				padding-left: 1rem;
 				padding-right: 1rem;
-			}
-		}
-	}
-
-	.timeline{
-		margin-top: 1rem;
-		position: relative;
-		margin-bottom: 1rem;
-		&:before{
-			content: "";
-			position: absolute;
-			height: 100%;
-			left: 25px;
-			border-left: 1px solid $border-color;
-			z-index: 0;
-		}
-		.timeline-date{
-			position: relative;
-			margin-bottom: 1rem;
-			span{
-				background: $secondary;
-				color: white;
-				padding: .1rem 1rem;
-				z-index: 1;
-				border-radius: $border-radius;
-			}
-		}
-		.timeline-item{
-			clear: both;
-			&:first-child{
-				padding-top: 1rem;
-			}
-			&:last-child{
-				padding-bottom: 1rem;
-			}
-			.timeline-icon{
-				width: 50px;
-				height: 50px;
-				text-align: center;
-				border-radius: 50%;
-				margin-right: 1rem;
-				z-index: 1;
-				background: $secondary;
-				color: white;
-				i{
-					line-height: 50px;
-				}
-			}
-			.timeline-card{
-				position: relative;
-				&:before{
-					content: "";
-					position: absolute;
-					width: 15px;
-					height: 15px;
-					background: white;
-					transform: translateX(-50%) translateY(-50%) rotate(-45deg);
-					top: 25px;
-					border-top: 1px solid $border-color;
-					border-left: 1px solid $border-color;
-				}
-			}
-		}
-	}
-	.table{
-		tr{
-			td, th{
-				&:first-child{
-					padding-left: 1rem;
-				}
-				&:last-child{
-					padding-right: 1rem;
-				}
 			}
 		}
 	}
@@ -553,6 +705,88 @@ body{
 			}
 		}
 	}
+	.timeline{
+		margin-top: 1rem;
+		position: relative;
+		margin-bottom: 1rem;
+		&:before{
+			content: "";
+			position: absolute;
+			height: 100%;
+			left: 25px;
+			border-left: 1px solid $border-color;
+			z-index: 0;
+		}
+		.timeline-date{
+			position: relative;
+			margin-bottom: 1rem;
+			span{
+				background: $secondary;
+				color: white;
+				padding: .1rem 1rem;
+				z-index: 1;
+				border-radius: $border-radius;
+			}
+		}
+		.timeline-item{
+			clear: both;
+			&:first-child{
+				padding-top: 1rem;
+			}
+			&:last-child{
+				padding-bottom: 1rem;
+			}
+			.timeline-icon{
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				border-radius: 50%;
+				margin-right: 1rem;
+				z-index: 1;
+				background: $secondary;
+				color: white;
+				i{
+					line-height: 50px;
+				}
+			}
+			.timeline-card{
+				position: relative;
+				&:before{
+					content: "";
+					position: absolute;
+					width: 15px;
+					height: 15px;
+					background: white;
+					transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+					top: 25px;
+					border-top: 1px solid $border-color;
+					border-left: 1px solid $border-color;
+				}
+			}
+		}
+	}
+	.table{
+		tr{
+			td, th{
+				&:first-child{
+					padding-left: 1rem;
+				}
+				&:last-child{
+					padding-right: 1rem;
+				}
+			}
+		}
+		&.table-sm{
+			thead{
+				tr{
+					th{
+						padding-top: .5rem;
+						padding-bottom: .5rem;
+					}
+				}
+			}
+		}
+	}
 	.dataTables_wrapper{
 		&.container-fluid{
 			padding-right: 0;
@@ -567,85 +801,8 @@ body{
 			margin-top: .1rem;
 		}
 	}
-	.table{
-		&.table-sm{
-			thead{
-				tr{
-					th{
-						padding-top: .5rem;
-						padding-bottom: .5rem;
-					}
-				}
-			}
-		}
-	}
-	&.active-sidenav{
-		> header{
-			.navbar{
-				&.navbar-expand{
-					@each $breakpoint in map-keys($grid-breakpoints) {
-						$next: breakpoint-next($breakpoint, $grid-breakpoints);
-						$infix: breakpoint-infix($next, $grid-breakpoints);
-
-						&#{$infix} {
-							@include media-breakpoint-down($breakpoint) {
-								.navbar-nav{
-									&.mainnav{
-										transform: translateX(0);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		&.topnav{
-			@each $breakpoint in map-keys($grid-breakpoints) {
-				$next: breakpoint-next($breakpoint, $grid-breakpoints);
-				$infix: breakpoint-infix($next, $grid-breakpoints);
-
-				&#{$infix}{
-					@include media-breakpoint-down($breakpoint) {
-						@media (min-width: $min-media) {
-							.body{
-								margin-left: $sidenav-width;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	&.sidenav{
-		> header{
-			.navbar{
-				.navbar-toggler{
-					display: block;
-				}
-				.navbar-nav{
-					&.mainnav{
-						@include sidenav();
-					}
-				}
-			}
-		}
-		&.active-sidenav{
-			> header{
-				.navbar{
-					.mainnav{
-						transform: translateX(0);
-					}
-				}
-			}
-			.body{
-				@media (min-width: $min-media) {
-					margin-left: $sidenav-width;
-				}
-			}
-		}
-	}
 }
+
 @each $key, $value in $skin	{
 	body.skin-#{$key}{
 		> header{
