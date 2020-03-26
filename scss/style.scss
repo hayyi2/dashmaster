@@ -178,6 +178,9 @@ body{
 						&.navbar-light{
 							@include media-breakpoint-up($next) {
 								.navbar-nav {
+									.active{
+										position: relative;
+									}
 									.active > .nav-link,
 									.nav-link.active {
 										&::before{
@@ -195,6 +198,9 @@ body{
 						&.navbar-dark{
 							@include media-breakpoint-up($next) {
 								.navbar-nav {
+									.active{
+										position: relative;
+									}
 									.active > .nav-link,
 									.nav-link.active {
 										&::before{
@@ -237,12 +243,13 @@ body{
   										font-weight: $font-weight-normal;
   										color: $dropdown-link-color;
   										&.active{
+											position: relative;
   											> .nav-link{
   												background: map-get($skin-lighter, $default-skin);
   											}
   											&:not(.dropdown){
   												border-left: $border-width-sidenav solid map-get($skin, $default-skin);
-  												padding-left: calc(#{$dropdown-item-padding-x} - #{$border-width-sidenav});
+  												/*padding-left: calc(#{$dropdown-item-padding-x} - #{$border-width-sidenav});*/
   											}
   										}
   										.nav-link{
